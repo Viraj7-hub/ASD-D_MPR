@@ -1,0 +1,547 @@
+/* ── Base layout ──────────────────────────────────────────────────────────── */
+
+/* Full-screen 3-column flex container */
+.chat-layout {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f4ff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; /* prevent the whole page from scrolling; each column scrolls independently */
+}
+
+/* ── LEFT SIDEBAR ─────────────────────────────────────────────────────────── */
+
+.chat-sidebar {
+    width: 280px;
+    min-width: 220px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Top row inside the sidebar: Back button + "Active Chat" label */
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 16px 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.sidebar-header h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #0c3396;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.back-btn:hover {
+    background-color: #f0f4ff;
+}
+
+/* The contact row (avatar + name + status) */
+.sidebar-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.sidebar-contact.active {
+    background-color: #f0f4ff;
+    border-left: 4px solid #0c3396;
+}
+
+/* Circular letter avatar */
+.contact-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #0c3396;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-info h4 {
+    margin: 0 0 2px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Green "● Online" indicator */
+.online-indicator {
+    font-size: 12px;
+    color: #059669;
+    margin: 0;
+}
+
+/* Additional provider metadata below the contact row */
+.sidebar-provider-info {
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 4px;
+}
+
+.sidebar-provider-info p {
+    font-size: 13px;
+    color: #475569;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ── MIDDLE: MAIN CHAT AREA ───────────────────────────────────────────────── */
+
+.chat-main {
+    flex: 1;           /* fills all remaining horizontal space between the two panels */
+    display: flex;
+    flex-direction: column;
+    background-color: #f8faff;
+    min-width: 0;      /* prevent flex overflow */
+}
+
+/* Top bar of the chat window */
+.chat-header {
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Avatar in the chat header */
+.chat-header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #0c3396;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chat-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 2px;
+}
+
+/* Sub-line below the name: "Verified Plumber · Bangalore" */
+.chat-header-sub {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Pushes the status badge to the far right */
+.status-badge {
+    margin-left: auto;
+    font-size: 11px;
+    background-color: #e0e7ff;
+    color: #3730a3;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+}
+
+/* Scrollable message list */
+.chat-messages {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    /* Custom scrollbar for a polished look */
+    scrollbar-width: thin;
+    scrollbar-color: #c7d2fe transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #c7d2fe;
+    border-radius: 4px;
+}
+
+/* Loading and empty state placeholders */
+.chat-loading,
+.chat-empty-state {
+    margin: auto;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.chat-empty-state span {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* ── Message bubbles ──────────────────────────────────────────────────────── */
+
+/* Shared wrapper for every message bubble */
+.message-bubble {
+    max-width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* My messages: right-aligned, dark blue bubble */
+.my-message {
+    align-self: flex-end;
+}
+
+.my-message .message-content {
+    background-color: #0c3396;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 18px 18px 4px 18px; /* sharp bottom-right corner points "toward" the right */
+    line-height: 1.5;
+}
+
+/* Their messages: left-aligned, white bubble */
+.their-message {
+    align-self: flex-start;
+}
+
+.their-message .message-content {
+    background-color: #ffffff;
+    color: #1e293b;
+    padding: 12px 16px;
+    border-radius: 18px 18px 18px 4px; /* sharp bottom-left corner points "toward" the left */
+    border: 1px solid #e2e8f0;
+    line-height: 1.5;
+}
+
+.message-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Timestamp shown below each bubble */
+.message-time {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+    /* Right-align for our messages, left-align for theirs */
+    align-self: flex-end;
+}
+
+.their-message .message-time {
+    align-self: flex-start;
+}
+
+/* ── Input bar at the bottom ─────────────────────────────────────────────── */
+
+.chat-input-area {
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 24px;
+    background-color: #f8faff;
+    outline: none;
+    font-size: 14px;
+    color: #1e293b;
+    transition: border-color 0.2s;
+}
+
+.chat-input-area input:focus {
+    border-color: #0c3396;
+}
+
+.send-button {
+    background-color: #0c3396;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s, opacity 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.send-button:hover {
+    background-color: #092672;
+}
+
+/* Disable styling when the input is empty */
+.send-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ── RIGHT PANEL: Negotiation & Job Details ──────────────────────────────── */
+
+.chat-details-panel {
+    width: 300px;
+    min-width: 260px;
+    background-color: #ffffff;
+    border-left: 1px solid #e2e8f0;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-y: auto;
+}
+
+/* Each card inside the right panel */
+.panel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Section heading inside each card */
+.panel-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Price row: "Listed Price" label + amount */
+.price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #10b981; /* green underline */
+    font-size: 14px;
+    color: #475569;
+}
+
+/* The ₹ amount */
+.price-bold {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0c3396;
+}
+
+/* Primary CTA in the panel */
+.lock-price-btn {
+    background-color: #0c3396;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.lock-price-btn:hover {
+    background-color: #092672;
+}
+
+/* Secondary CTA in the panel */
+.propose-btn {
+    background-color: #f0f4ff;
+    color: #0c3396;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1.5px solid #c3d2f2;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.propose-btn:hover {
+    background-color: #e0e9ff;
+}
+
+/* Small info box inside a panel card */
+.job-info-card {
+    background-color: #f8faff;
+    border: 1px solid #e2e8f0;
+    padding: 14px;
+    border-radius: 8px;
+}
+
+.job-info-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.job-info-card p {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* ── Error / no-provider state ───────────────────────────────────────────── */
+
+.chat-error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 16px;
+    color: #475569;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.chat-error-state h2 {
+    color: #1e293b;
+}
+
+.chat-error-state button {
+    background-color: #0c3396;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ── FIX #7: Dynamic online / offline status ─────────────────────────────── */
+
+/* Green for online */
+.online-indicator.online {
+    color: #059669;
+}
+
+/* Grey for offline */
+.online-indicator.offline {
+    color: #94a3b8;
+}
+
+/* Status badge in chat header */
+.status-badge.status-online {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.status-offline {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+}
+
+/* ── FIX #6: Special message bubble styles for offers & locked prices ──────── */
+
+.offer-bubble .message-content {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7) !important;
+    color: #92400e !important;
+    border: 1.5px solid #fcd34d !important;
+    border-radius: 12px !important;
+    font-weight: 500;
+}
+
+.locked-bubble .message-content {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0) !important;
+    color: #065f46 !important;
+    border: 1.5px solid #6ee7b7 !important;
+    border-radius: 12px !important;
+    font-weight: 500;
+}
+
+/* ── Payment button states ───────────────────────────────────────────────── */
+
+/* Spinner inside the button during payment processing */
+.btn-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2.5px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Processing state — pulsing opacity to show activity */
+.lock-price-btn.lock-price-processing {
+    background-color: #0c3396;
+    opacity: 0.85;
+    cursor: wait;
+    pointer-events: none;
+    animation: pulse-btn 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-btn {
+    0%, 100% { opacity: 0.85; }
+    50%      { opacity: 0.65; }
+}
+
+/* Completed / success state — green with checkmark */
+.lock-price-btn.lock-price-completed {
+    background: linear-gradient(135deg, #059669, #047857);
+    cursor: default;
+    pointer-events: none;
+    box-shadow: 0 2px 12px rgba(5, 150, 105, 0.3);
+}
+
+/* Disabled state for the lock button (generic) */
+.lock-price-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

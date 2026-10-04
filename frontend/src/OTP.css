@@ -1,0 +1,146 @@
+/* Reset basic margins and box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container taking full viewport height */
+.verify-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Header placement for the logo */
+.brand-header {
+    padding: 2rem 3rem;
+    width: 100%;
+}
+
+.brand-logo {
+    color: #2b3990; /* Deep blue from your screenshot */
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Central form wrapper */
+.verify-wrapper {
+    max-width: 480px;
+    margin: 4rem auto;
+    padding: 2rem;
+    width: 100%;
+    text-align: left; /* Aligning headings to the left as per the image */
+}
+
+/* Typography styles */
+.main-heading {
+    color: #111827;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.description-text {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+}
+
+/* OTP Input Container - Flexbox to space out the boxes evenly */
+.otp-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+}
+
+/* Individual OTP Box Styling */
+.otp-input {
+    width: 55px;
+    height: 65px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #111827;
+    /* Very light grayish-blue background */
+    background-color: #f4f7fc; 
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    /* Smooth transition for when the user clicks it */
+    transition: all 0.2s ease;
+}
+
+/* Remove default focus outline and add our own brand color border */
+.otp-input:focus {
+    outline: none;
+    border-color: #2b3990;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(43, 57, 144, 0.1);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    background-color: #1a237e; /* Dark navy blue */
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 2rem;
+}
+
+.submit-btn:hover {
+    background-color: #121858;
+}
+
+/* Footer Section Styling */
+.resend-container {
+    text-align: center;
+}
+
+.resend-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+/* Base style for the resend link/button */
+.resend-link {
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0;
+    margin-left: 4px;
+}
+
+/* Active state for when the timer is done */
+.resend-link.active {
+    color: #2b3990;
+    cursor: pointer;
+}
+
+.resend-link.active:hover {
+    text-decoration: underline;
+}
+
+/* Disabled state for while the timer is still running */
+.resend-link.disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.timer-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+}

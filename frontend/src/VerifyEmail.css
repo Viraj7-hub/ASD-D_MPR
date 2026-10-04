@@ -1,0 +1,155 @@
+/* Reset some basic margins and padding for consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The main container taking up the full viewport height */
+.reset-container {
+    /* Use flexbox to easily position children */
+    display: flex;
+    /* Stack children vertically */
+    flex-direction: column;
+    /* Take up 100% of the viewport height */
+    min-height: 100vh;
+    /* Light gray/off-white background color */
+    background-color: #fcfcfc; 
+    /* Use a clean, modern sans-serif font */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* The header containing the logo */
+.brand-header {
+    /* Add padding to position it at the top left */
+    padding: 2rem 3rem;
+    width: 100%;
+}
+
+/* The styling for the "ProFix" logo */
+.brand-logo {
+    /* A deep indigo/blue color */
+    color: #2b3990; 
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* The central container holding the form */
+.form-wrapper {
+    /* Max width to keep the form from getting too wide on large screens */
+    max-width: 480px;
+    /* Auto margins on left/right center the box horizontally */
+    /* 4rem margin on top pushes it down nicely */
+    margin: 4rem auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* Main heading styling */
+.main-heading {
+    color: #111827;
+    font-size: 1.75rem;
+    font-weight: 700;
+    /* Space below the heading */
+    margin-bottom: 0.75rem;
+}
+
+/* Description paragraph styling */
+.description-text {
+    /* Slightly lighter text color for contrast hierarchy */
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    /* Space below the paragraph */
+    margin-bottom: 2rem;
+}
+
+/* Input group container */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+/* Input label styling */
+.input-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+/* The actual text input field */
+.form-input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    /* Light gray border */
+    border: 1px solid #d1d5db;
+    /* Rounded corners */
+    border-radius: 6px;
+    /* Smooth transition for focus state */
+    transition: border-color 0.2s ease;
+}
+
+/* Change border color slightly when user clicks into the input */
+.form-input:focus {
+    outline: none;
+    border-color: #2b3990;
+}
+
+/* The submit button */
+.submit-btn {
+    width: 100%;
+    /* Deep indigo background */
+    background-color: #2b3990;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 6px;
+    /* Pointer cursor to indicate it's clickable */
+    cursor: pointer;
+    /* Center text and icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    /* Smooth hover transition */
+    transition: background-color 0.2s ease;
+}
+
+/* Darken the button slightly on hover */
+.submit-btn:hover {
+    background-color: #212c75;
+}
+
+/* Container for the back link */
+.back-link-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* The 'Back to Login' link */
+.back-link {
+    color: #2b3990;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+/* Add an underline when hovering over the link */
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Specific styling for the HTML arrow entities */
+.arrow-icon {
+    font-size: 1.2rem;
+    /* Adjust alignment slightly */
+    line-height: 1;
+}

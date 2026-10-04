@@ -1,0 +1,83 @@
+
+.hero-section {
+    background-color: #f4f7fe; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 5%; 
+    min-height: 80vh; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.hero-text-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero-heading {
+    color: #111827; 
+    font-size: 3.5rem; 
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.heading-highlight {
+    color: #0f2e82; 
+}
+
+.hero-paragraph {
+    color: #4b5563;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 0;
+    max-width: 90%;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.service-provider-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 24px; 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    object-fit: cover;
+}
+
+/* Target tablets and mobile phones (screens 768px wide or smaller) */
+@media (max-width: 768px) {
+    /* Change the flex layout from row to column so items stack vertically */
+    .hero-section {
+        flex-direction: column;
+        /* Reduce the top/bottom padding to save screen space on mobile */
+        padding: 40px 5%; 
+        /* Center the content vertically */
+        text-align: center; 
+    }
+
+    /* Remove the right padding since the image is no longer next to the text */
+    .hero-text-content {
+        padding-right: 0;
+        /* Add margin to the bottom to separate the text from the image below it */
+        margin-bottom: 40px; 
+    }
+
+    /* Ensure the image container centers its content */
+    .hero-image-container {
+        justify-content: center;
+        /* Allow the container to take up the full width of the screen */
+        width: 100%; 
+    }
+    
+    /* Make the heading smaller for mobile screens to prevent overflow */
+    .hero-heading {
+        font-size: 2.5rem;
+    }
+}

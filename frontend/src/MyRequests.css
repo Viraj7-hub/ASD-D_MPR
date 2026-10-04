@@ -1,0 +1,297 @@
+/* MyRequests.css */
+
+.myrequests-page {
+    min-height: 100vh;
+    background: #f8fafc;
+    padding: 32px 24px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ── Header ── */
+.myrequests-header {
+    margin-bottom: 28px;
+}
+
+.myrequests-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: #0c3396;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 16px;
+    font-family: inherit;
+    transition: color 0.2s;
+}
+
+.myrequests-back-btn:hover {
+    color: #1e40af;
+}
+
+.myrequests-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 4px;
+}
+
+.myrequests-subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ── Tabs ── */
+.myrequests-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0;
+}
+
+.myrequests-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border: none;
+    background: none;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    font-family: inherit;
+    border-radius: 4px 4px 0 0;
+}
+
+.myrequests-tab:hover {
+    color: #0c3396;
+    background: #eff6ff;
+}
+
+.myrequests-tab.active {
+    color: #0c3396;
+    border-bottom-color: #0c3396;
+    font-weight: 600;
+}
+
+.myrequests-tab-count {
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 999px;
+}
+
+.myrequests-tab.active .myrequests-tab-count {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* ── Loading ── */
+.myrequests-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 80px 0;
+    color: #64748b;
+}
+
+.myrequests-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #0c3396;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Empty State ── */
+.myrequests-empty {
+    text-align: center;
+    padding: 80px 24px;
+    color: #64748b;
+}
+
+.myrequests-empty-icon {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.myrequests-empty h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #334155;
+    margin: 0 0 8px;
+}
+
+.myrequests-empty p {
+    font-size: 14px;
+    margin: 0 0 24px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myrequests-cta-btn {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #0c3396, #1d4ed8);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s;
+}
+
+.myrequests-cta-btn:hover {
+    opacity: 0.9;
+}
+
+/* ── Card List ── */
+.myrequests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.myrequests-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.myrequests-card:hover {
+    box-shadow: 0 8px 28px rgba(12, 51, 150, 0.12);
+    transform: translateY(-2px);
+}
+
+.myrequests-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.myrequests-card-service {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.myrequests-service-icon {
+    color: #0c3396;
+}
+
+.myrequests-service-type {
+    font-weight: 600;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.myrequests-card-id {
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-pending  { background: #fef3c7; color: #92400e; }
+.badge-accepted { background: #dbeafe; color: #1e40af; }
+.badge-completed{ background: #d1fae5; color: #065f46; }
+.badge-declined { background: #fee2e2; color: #991b1b; }
+
+/* Card body */
+.myrequests-card-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.myrequests-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.myrequests-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.myrequests-value {
+    font-size: 14px;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.myrequests-description {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.myrequests-desc-text {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+    background: #f1f5f9;
+    border-radius: 8px;
+    padding: 10px 12px;
+    border-left: 3px solid #0c3396;
+}
+
+/* Card footer */
+.myrequests-card-footer {
+    padding: 10px 20px;
+    border-top: 1px solid #f1f5f9;
+    background: #fafafa;
+}
+
+.myrequests-created {
+    font-size: 11px;
+    color: #94a3b8;
+}

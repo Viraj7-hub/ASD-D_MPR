@@ -1,0 +1,199 @@
+/* Importing a clean sans-serif font (Inter is a great standard for modern UIs) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Main container: limits the width on large screens and centers the entire section */
+.services-section {
+  font-family: 'Inter', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+/* Header layout: Flexbox ensures the text group is on the left and the link is on the right */
+.services-header {
+  /* Enables flexbox for side-by-side layout */
+  display: flex;
+  /* Pushes the title to the far left and the link to the far right */
+  justify-content: space-between;
+  /* Aligns the link to the bottom of the title group so they sit on the same baseline */
+  align-items: flex-end; 
+  /* Adds breathing room below the header before the cards start */
+  margin-bottom: 32px;
+}
+
+/* Removes default margins to control spacing tightly on the main title */
+.section-title {
+  /* Sets a large, readable size for the section heading */
+  font-size: 32px;
+  /* Makes the font bold */
+  font-weight: 700;
+  /* Uses a dark grayish-black color for high contrast */
+  color: #111827; 
+  /* Removes top/left/right margin, keeps a small margin at the bottom */
+  margin: 0 0 8px 0;
+}
+
+/* Subtitle styling: Lighter gray color and regular weight for visual hierarchy */
+.section-subtitle {
+  /* Standard readable font size */
+  font-size: 16px;
+  /* Regular font weight so it doesn't compete with the title */
+  font-weight: 400;
+  /* Uses a medium gray color to make it secondary text */
+  color: #6B7280; 
+  /* Removes all default margins */
+  margin: 0;
+}
+
+/* "View all" link styling: Removes underline, sets custom blue color and weight */
+.view-all-link {
+  /* Matches the subtitle font size */
+  font-size: 16px;
+  /* Semi-bold weight to make it clickable and distinct */
+  font-weight: 600;
+  /* Indigo/blue color to indicate it is an interactive element */
+  color: #4F46E5; 
+  /* Removes the default HTML link underline */
+  text-decoration: none;
+  /* Smoothly fades the opacity when the user hovers over it */
+  transition: opacity 0.2s ease;
+}
+
+/* Simple hover effect for better UX on the link */
+.view-all-link:hover {
+  /* Dims the link slightly when hovered */
+  opacity: 0.8;
+}
+
+/* Grid layout for the cards: Creates 4 equal columns that adjust responsively */
+.services-grid {
+  /* Enables CSS Grid for the card container */
+  display: grid;
+  /* Forces exactly 4 columns of equal fractional (1fr) width */
+  grid-template-columns: repeat(4, 1fr);
+  /* Creates consistent spacing between all the cards */
+  gap: 24px; 
+}
+
+/* The card itself: White background, rounded corners, subtle border */
+.service-card {
+  /* Gives the card a solid white background */
+  background-color: #ffffff;
+  /* Rounds the outer corners of the entire card */
+  border-radius: 16px;
+  /* Adds a very light gray outline around the card */
+  border: 1px solid #E5E7EB; 
+  /* Hides any child elements (like the image) that try to poke outside the rounded corners */
+  overflow: hidden; 
+  /* Uses flexbox to stack the image on top and text on the bottom */
+  display: flex;
+  /* Stacks the internal flex items vertically */
+  flex-direction: column;
+}
+
+/* Wrapper to define a strict height for the image area */
+.card-image-wrapper {
+  /* Takes up the full width of the card */
+  width: 100%;
+  /* Locks the image area height so all cards look uniform */
+  height: 180px; 
+}
+
+/* Forces the image to cover the wrapper perfectly without stretching */
+.card-image {
+  /* Ensures the image fills the width of its wrapper */
+  width: 100%;
+  /* Ensures the image fills the height of its wrapper */
+  height: 100%;
+  /* Crops the image to fit the box rather than stretching or squishing it */
+  object-fit: cover; 
+}
+
+/* Padding around the text and icon below the image */
+.card-content {
+  /* Adds generous spacing inside the text area of the card */
+  padding: 24px;
+  /* Allows the text area to expand and fill empty space if descriptions are different lengths */
+  flex-grow: 1; 
+}
+
+/* The rounded square behind the icons */
+.icon-wrapper {
+  /* Allows the wrapper to size to its content while using flex properties */
+  display: inline-flex;
+  /* Centers the SVG icon vertically */
+  align-items: center;
+  /* Centers the SVG icon horizontally */
+  justify-content: center;
+  /* Fixed width for the icon box */
+  width: 40px;
+  /* Fixed height for the icon box */
+  height: 40px;
+  /* Light indigo background color */
+  background-color: #EEF2FF; 
+  /* Sets the SVG stroke color to a darker indigo */
+  color: #4F46E5; 
+  /* Slightly rounds the corners of the icon box */
+  border-radius: 10px;
+  /* Pushes the text down below the icon */
+  margin-bottom: 16px; 
+}
+
+/* Card title styling */
+.card-title {
+  /* Sets the size for the service name */
+  font-size: 20px;
+  /* Semi-bold weight */
+  font-weight: 600;
+  /* Dark color for high readability */
+  color: #111827;
+  /* Adds a little space between the title and the description */
+  margin: 0 0 8px 0;
+  /* Centers the title text */
+  text-align: center;
+}
+
+/* Card description styling */
+.card-description {
+  /* Smaller, secondary text size */
+  font-size: 14px;
+  /* Regular font weight */
+  font-weight: 400;
+  /* Medium gray color */
+  color: #6B7280;
+  /* Removes default margins */
+  margin: 0;
+  /* Increases the vertical space between lines for better readability */
+  line-height: 1.5; 
+  /* Left-aligns the paragraph text */
+  text-align: center;
+}
+
+/* FIX: Lowered the breakpoint from 1024px to 850px.
+   Now, 13-inch laptops will keep the 4-column layout, and it will only 
+   stack to 2 columns on iPads and smaller tablets.
+*/
+@media (max-width: 850px) {
+  /* Switches the grid to 2 columns on medium screens */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive design: Stack everything vertically on phones */
+@media (max-width: 640px) {
+  /* Changes the header layout from side-by-side to stacked */
+  .services-header {
+    /* Stacks the title and link vertically */
+    flex-direction: column;
+    /* Aligns the stacked items to the left edge */
+    align-items: flex-start;
+    /* Adds space between the title group and the link */
+    gap: 16px;
+  }
+  
+  /* Switches the grid to 1 single column on mobile screens */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

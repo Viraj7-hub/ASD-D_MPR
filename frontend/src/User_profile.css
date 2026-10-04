@@ -1,0 +1,130 @@
+/* Import Inter font for a clean, modern look matching the design */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Main container for the pop-up window */
+.profile-popup-container {
+  font-family: 'Inter', -apple-system, sans-serif;
+  width: 100%;
+  max-width: 380px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  /* position: relative is CRITICAL here so the absolute positioned close button stays inside this box */
+  position: relative; 
+}
+
+/* --- NEW: Close Button Styles --- */
+.close-popup-btn {
+  position: absolute; /* Allows us to pin it to the top right */
+  top: 16px;
+  right: 16px;
+  background: none; /* Removes default button background */
+  border: none; /* Removes default button border */
+  color: red; 
+  cursor: pointer;
+  padding: 4px; /* Adds a bit of clickable area around the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for the close button to indicate it is clickable */
+.close-popup-btn:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* Sizing the actual SVG cross inside the button */
+.close-popup-btn svg {
+  width: 20px;
+  height: 20px;
+}
+/* -------------------------------- */
+
+/* Content area where the form fields live */
+.popup-content {
+  /* Added slightly more top padding (36px) so the content doesn't crash into the close button */
+  padding: 36px 24px 16px 24px; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Container for individual label + input pairs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Label styling: small, dark gray, and semi-bold */
+.form-group label {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 500;
+}
+
+/* The light blue display boxes that hold the icons and text */
+.input-display {
+  display: flex;
+  align-items: center;
+  background-color: #f4f7fc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+/* Modifier class for the address block so the icon stays at the top when text wraps */
+.input-display.align-top {
+  align-items: flex-start;
+}
+
+/* Styling for the SVG icons inside the display boxes */
+.field-icon {
+  width: 18px;
+  height: 18px;
+  color: #2b4c9b;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* Small utility class to push the map pin down slightly to align with the text */
+.mt-1 {
+  margin-top: 2px;
+}
+
+/* The actual text data inside the display boxes */
+.field-text {
+  font-size: 14px;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+/* Footer area containing the button */
+.popup-footer {
+  padding: 16px 24px 24px 24px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* The primary action button styling */
+.edit-profile-btn {
+  width: 100%;
+  background-color: #2d45a8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover state to make the primary button darker */
+.edit-profile-btn:hover {
+  background-color: #223581;
+}

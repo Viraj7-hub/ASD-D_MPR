@@ -1,0 +1,329 @@
+/* Base reset to ensure consistent sizing and remove default margins */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Main container holding the entire page layout */
+.directory-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fc;
+    /* Light background as seen in the image */
+}
+
+/* Header section styling */
+.directory-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+}
+
+/* Title text styling */
+.directory-header h1 {
+    color: #0c3396;
+    /* Dark blue from the image */
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Subtitle text styling */
+.directory-header p {
+    color: #5a6270;
+    font-size: 14px;
+}
+
+/* Filter bar flexbox layout to space options and count */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Container for the filter buttons */
+.filter-options {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Styling for the 'Filter by:' text */
+.filter-label {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Base styles for the filter pill buttons */
+.filter-btn {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Active state for the selected filter pill */
+.filter-btn.active {
+    background-color: #f0f4ff;
+    color: #0c3396;
+    border-color: #c3d2f2;
+}
+
+/* Right-aligned results count text */
+.results-count {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Green verified checkmark icon in the filter bar */
+.verified-icon {
+    color: #059669;
+    font-size: 12px;
+}
+
+/* Grid layout for the profile cards (3 columns) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Individual profile card styling */
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Placeholder for the plumber image section */
+.card-image {
+    height: 180px;
+    width: 100%;
+    position: relative;
+    /* Background color injected via React inline style as fallback */
+}
+
+/* Styling for the Pro Verified badge over the image */
+.pro-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: #d1fae5;
+    color: #065f46;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* Body container inside the profile card */
+.card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Header row inside the card (Name and Rating) */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+/* Plumber name text styling */
+.card-header h2 {
+    font-size: 16px;
+    color: #111827;
+    font-weight: 600;
+}
+
+/* Rating pill styling (Star and number) */
+.rating-pill {
+    background-color: #f0f4ff;
+    color: #4b5563;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Sub-role text styling (e.g., 'Plumber') */
+.role-text {
+    color: #0c3396;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Container for experience and location details */
+.meta-details {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+/* Styling for the customer review blockquote */
+.review-quote {
+    font-size: 12px;
+    color: #4b5563;
+    font-style: italic;
+    border-left: 2px solid #e5e7eb;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    /* Pushes footer to the bottom */
+    line-height: 1.5;
+}
+
+/* Footer layout inside the card (Price and Button) */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+/* Wrapper for the price details */
+.price-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 'Starting at' small label text */
+.starting-at {
+    font-size: 10px;
+    color: #6b7280;
+}
+
+/* Main price text */
+.price {
+    font-size: 16px;
+    color: #0c3396;
+    font-weight: 600;
+}
+
+/* Book Now primary action button */
+.book-btn {
+    background-color: #0c3396;
+    color: white;
+    border: none;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.book-btn:hover {
+    background-color: #092672;
+}
+
+/* Special styling for the Support Card at the end */
+.support-card {
+    background-color: #ebf0fa;
+    border: 1px dashed #a5b4fc;
+    border-radius: 12px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Circular wrapper for the headset icon */
+.support-icon-wrapper {
+    background-color: #2b49ab;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+/* Headset icon sizing */
+.support-icon {
+    font-size: 20px;
+    color: white;
+}
+
+/* Support card title text */
+.support-card h3 {
+    color: #1e3a8a;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Support card description text */
+.support-card p {
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/* Distinctive green button for Support action */
+.support-btn {
+    background-color: #057a55;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Responsive adjustment for tablets */
+@media (max-width: 992px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive adjustment for mobile devices */
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .filter-options {
+        flex-wrap: wrap;
+    }
+}

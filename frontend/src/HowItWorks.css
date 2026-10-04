@@ -1,0 +1,226 @@
+/* Importing the 'Inter' font to match the clean, modern aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Outermost container: Provides the light bluish background and centers the grid */
+.how-it-works-wrapper {
+  background-color: #F8F9FA; 
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center; /* Ensures the grid container is perfectly centered */
+}
+
+/* The CSS Grid container defining the staggered layout */
+.steps-grid {
+  display: grid;
+  /* Creates exactly 3 columns of equal width */
+  grid-template-columns: repeat(3, 1fr); 
+  /* Sets the horizontal and vertical gaps between the cards */
+  gap: 24px; 
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Base styles applied to all 4 cards */
+.step-card {
+  background-color: #FFFFFF;
+  border-radius: 16px; /* Rounds the corners of the cards */
+  padding: 32px; /* Generous internal breathing room */
+  border: 1px solid #F3F4F6; /* A very subtle light grey border */
+  /* Ensures nothing (like the decorative graphic) spills outside the rounded corners */
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- GRID PLACEMENT CLASSES --- */
+/* Makes the first card span across two columns instead of one */
+.card-search {
+  grid-column: span 2;
+  position: relative; /* Allows absolute positioning for the background graphic */
+}
+
+/* Explicitly spans one column (default behavior, but good for clarity) */
+.card-compare {
+  grid-column: span 1;
+}
+
+/* Explicitly spans one column */
+.card-book {
+  grid-column: span 1;
+}
+
+/* Makes the fourth card span two columns and changes internal layout to Flexbox for side-by-side content */
+.card-review {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: row; /* Aligns the text wrapper and image horizontally */
+  align-items: center; /* Centers items vertically relative to each other */
+  justify-content: space-between;
+}
+
+/* --- ICON BOX STYLES --- */
+/* Shared layout for the small colored squares holding the icons */
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px; /* Slightly rounded square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Space between the icon and the title */
+}
+
+/* Specific colors for the blue icons (Cards 1, 2, 4) */
+.blue-icon {
+  background-color: #EEF2FF; /* Light indigo background */
+  color: #4338CA; /* Dark indigo stroke color */
+}
+
+/* Specific colors for the green icon (Card 3) */
+.green-icon {
+  background-color: #ECFDF5; /* Light emerald/mint background */
+  color: #059669; /* Dark emerald stroke color */
+}
+
+/* --- TYPOGRAPHY STYLES --- */
+/* Title styling for all cards */
+.step-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px 0; /* Space between title and paragraph */
+}
+
+/* Paragraph styling for all cards */
+.step-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4B5563; /* Medium gray */
+  margin: 0;
+  line-height: 1.6; /* Taller line height for better readability */
+  max-width: 90%; /* Prevents text from hitting the absolute edge of the container */
+}
+
+/* --- SPECIFIC CARD CONTENTS --- */
+
+/* CARD 1: Tags at the bottom */
+.tags-wrapper {
+  margin-top: 24px;
+  display: flex;
+  gap: 8px; /* Space between each pill */
+  flex-wrap: wrap; /* Allows tags to wrap to next line on very small screens */
+}
+
+/* Individual tag styling */
+.service-tag {
+  background-color: #EEF2FF;
+  color: #4338CA;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px; /* High border radius creates the pill shape */
+}
+
+/* CARD 1: Faint background graphic */
+.decorative-graphic {
+  position: absolute; /* Takes the graphic out of normal document flow */
+  right: 20px; /* Pins it to the bottom right */
+  bottom: -20px;
+  opacity: 0.5; /* Makes it very faint */
+  pointer-events: none; /* Prevents the graphic from interfering with clicks */
+}
+
+/* CARD 2: Star rating */
+.rating-wrapper {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between stars and the numerical score */
+}
+
+/* Container for the 5 stars */
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+/* The text indicating "4.9/5" */
+.rating-score {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* CARD 4: Review text section */
+.review-text-content {
+  flex: 1; /* Allows the text to take up available space */
+  padding-right: 24px; /* Space between the text and the image */
+}
+
+/* CARD 4: The image wrapper */
+.review-image-wrapper {
+  flex-shrink: 0; /* Prevents the image from shrinking smaller than its set width */
+}
+
+/* The actual image styling inside card 4 */
+.review-image {
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  object-fit: cover; /* Ensures the image doesn't warp */
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* For smaller laptops and tablets */
+@media (max-width: 950px) {
+  /* Changes the grid from 3 columns to 2 columns */
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Forces Card 2 to drop to a new line by spanning 2 columns */
+  .card-compare {
+    grid-column: span 1;
+  }
+  
+  .card-book {
+    grid-column: span 1;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 650px) {
+  /* Changes the grid to a single vertical column */
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Resets all grid columns to span normally */
+  .step-card {
+    grid-column: span 1 !important; 
+  }
+  
+  /* Stacks Card 4's text and image vertically on mobile */
+  .card-review {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .review-text-content {
+    padding-right: 0;
+    margin-bottom: 24px;
+  }
+  
+  /* Makes the image full width on phones */
+  .review-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  /* Hides the decorative graphic on phones to save space */
+  .decorative-graphic {
+    display: none;
+  }
+}

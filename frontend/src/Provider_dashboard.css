@@ -1,0 +1,813 @@
+/* ═══════════════════════════════════════════════════════════
+   Provider Dashboard – ProFix Pro
+   ═══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Reset & Base ── */
+.pd-layout * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Root Layout ── */
+.pd-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f4f6fb;
+    color: #1e293b;
+}
+
+/* ══════════════════════════════════════════
+   SIDEBAR
+══════════════════════════════════════════ */
+.pd-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border-right: 1px solid #e8ecf4;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 14px;
+    gap: 4px;
+    overflow-y: auto;
+}
+
+/* Brand */
+.pd-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 8px;
+    margin-bottom: 28px;
+}
+
+.pd-brand-logo {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e2f7a;
+    letter-spacing: -0.3px;
+}
+
+.pd-verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #16a34a;
+}
+
+/* Nav items */
+.pd-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.pd-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: none;
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.pd-nav-item:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.pd-nav-item.active {
+    background-color: #eef2ff;
+    color: #1e2f7a;
+    font-weight: 600;
+}
+
+.pd-nav-item.muted-nav {
+    color: #94a3b8;
+}
+
+.pd-nav-item.danger-nav {
+    color: #ef4444;
+}
+
+.pd-nav-item.danger-nav:hover {
+    background-color: #fef2f2;
+}
+
+/* Sidebar Footer */
+.pd-sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 12px;
+    border-top: 1px solid #e8ecf4;
+}
+
+.pd-support-btn {
+    margin-top: 10px;
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e2f7a;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.pd-support-btn:hover {
+    background-color: #162361;
+}
+
+/* ══════════════════════════════════════════
+   MAIN CONTENT AREA
+══════════════════════════════════════════ */
+.pd-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 28px 32px;
+    gap: 24px;
+}
+
+/* ── Top Bar ── */
+.pd-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.pd-topbar-left {
+    flex: 1;
+}
+
+.pd-greeting {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.pd-greeting-sub {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.pd-greeting-sub strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.pd-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.pd-location-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.pd-location-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.pd-location-value {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.pd-icon-btn {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.15s ease;
+}
+
+.pd-icon-btn:hover {
+    background-color: #f1f5f9;
+}
+
+/* ══════════════════════════════════════════
+   STATS ROW
+══════════════════════════════════════════ */
+.pd-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.pd-stat-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e8ecf4;
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+}
+
+.pd-stat-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.pd-alert-dot {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    animation: pulse-alert 2s infinite;
+}
+
+@keyframes pulse-alert {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.pd-stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-blue .pd-stat-icon { background-color: #eff6ff; color: #1e2f7a; }
+.stat-green .pd-stat-icon { background-color: #f0fdf4; color: #16a34a; }
+.stat-yellow .pd-stat-icon { background-color: #fefce8; color: #ca8a04; }
+.stat-purple .pd-stat-icon { background-color: #f5f3ff; color: #7c3aed; }
+
+.pd-stat-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.pd-stat-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+}
+
+.pd-stat-badge.positive {
+    background-color: #dcfce7;
+    color: #16a34a;
+}
+
+.pd-stat-badge.neutral {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.pd-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.2;
+}
+
+.pd-stars {
+    font-size: 12px;
+    color: #f59e0b;
+    letter-spacing: 1px;
+}
+
+.pd-stat-label {
+    font-size: 11.5px;
+    color: #64748b;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ══════════════════════════════════════════
+   TWO-COLUMN CONTENT
+══════════════════════════════════════════ */
+.pd-content-cols {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    align-items: start;
+}
+
+/* Section Header */
+.pd-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.pd-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pd-view-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: none;
+    border: none;
+    color: #1e2f7a;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 4px 0;
+    transition: opacity 0.15s ease;
+}
+
+.pd-view-all-btn:hover { opacity: 0.7; }
+
+/* ── Service Request Cards ── */
+.pd-requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pd-empty-state {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+    padding: 32px 0;
+}
+
+.pd-request-card {
+    background-color: #ffffff;
+    border: 1px solid #e8ecf4;
+    border-radius: 12px;
+    display: flex;
+    gap: 14px;
+    padding: 14px;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pd-request-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.pd-request-card.accepted {
+    border-color: #86efac;
+    background-color: #f0fdf4;
+}
+
+.pd-req-image {
+    width: 100px;
+    height: 90px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.pd-req-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.pd-service-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1e2f7a;
+    background-color: #eef2ff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.pd-req-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.pd-req-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.pd-req-fee {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1px;
+    flex-shrink: 0;
+}
+
+.pd-fee-label {
+    font-size: 9.5px;
+    color: #94a3b8;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.pd-fee-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e2f7a;
+}
+
+.pd-req-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.pd-req-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Accept/Decline Actions */
+.pd-req-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.pd-btn-accept {
+    padding: 9px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e2f7a;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(30, 47, 122, 0.2);
+}
+
+.pd-btn-accept:hover {
+    background-color: #162361;
+    transform: translateY(-1px);
+}
+
+.pd-btn-decline {
+    padding: 9px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+
+.pd-btn-decline:hover {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #ef4444;
+}
+
+.pd-accepted-msg {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #16a34a;
+    margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════
+   RIGHT SIDE PANEL
+══════════════════════════════════════════ */
+.pd-col-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pd-side-card {
+    background-color: #ffffff;
+    border: 1px solid #e8ecf4;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+/* Chat Count Badge */
+.pd-chat-count {
+    width: 20px;
+    height: 20px;
+    background-color: #ef4444;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chats List */
+.pd-chats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.pd-chat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background-color 0.15s ease;
+    position: relative;
+}
+
+.pd-chat-item:hover {
+    background-color: #f8fafc;
+}
+
+/* Avatar */
+.avatar-initials {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.pd-chat-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.pd-chat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.pd-chat-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pd-chat-time {
+    font-size: 10.5px;
+    color: #94a3b8;
+}
+
+.pd-chat-preview {
+    font-size: 12px;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.pd-unread-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #1e2f7a;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.pd-open-inbox-btn {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+}
+
+.pd-open-inbox-btn:hover {
+    background-color: #eef2ff;
+    border-color: #c7d2fe;
+    color: #1e2f7a;
+}
+
+/* Upcoming Jobs */
+.pd-jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.pd-job-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.pd-job-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #eef2ff;
+    border-radius: 8px;
+    width: 44px;
+    height: 48px;
+    flex-shrink: 0;
+    padding: 4px;
+}
+
+.pd-job-month {
+    font-size: 9px;
+    font-weight: 700;
+    color: #1e2f7a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pd-job-day {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e2f7a;
+    line-height: 1.1;
+}
+
+.pd-job-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.pd-job-time {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.pd-job-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pd-job-client {
+    font-size: 11.5px;
+    color: #64748b;
+}
+
+/* Schedule Availability */
+.pd-schedule-box {
+    background-color: #eef2ff;
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.pd-schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.pd-schedule-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e2f7a;
+}
+
+.pd-schedule-sub {
+    font-size: 11.5px;
+    color: #64748b;
+}
+
+/* ══════════════════════════════════════════
+   FLOATING CHAT BUTTON
+══════════════════════════════════════════ */
+.pd-float-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background-color: #1e2f7a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(30, 47, 122, 0.3);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+
+.pd-float-btn:hover {
+    background-color: #162361;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 47, 122, 0.4);
+}
+
+/* ── Status badges (FIX #4 & #5) ── */
+.pd-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.pd-status-badge.badge-pending   { background: #fef3c7; color: #92400e; }
+.pd-status-badge.badge-accepted  { background: #dbeafe; color: #1e40af; }
+.pd-status-badge.badge-completed { background: #d1fae5; color: #065f46; }
+.pd-status-badge.badge-declined  { background: #fee2e2; color: #991b1b; }
+
+/* ── Main column in two-column layout ── */
+.pd-col-main {
+    min-width: 0;
+}
+
+/* ── Loading spinner animation ── */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

@@ -1,0 +1,236 @@
+/* Importing Inter font to match the clean, modern typography in the images */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Main container holding the form to the left */
+.signup-container {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+}
+
+/* Restricts the form width to match the mockups */
+.form-wrapper {
+    width: 100%;
+    max-width: 540px; /* Keeps the form constrained */
+    text-align: center;
+}
+
+/* Logo styling */
+.brand-logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #00278A; /* Deep blue from the ProFix logo */
+    margin: 0 0 40px 0;
+}
+
+/* Main Heading */
+.main-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+/* Subheading */
+.sub-heading {
+    font-size: 15px;
+    font-weight: 400;
+    color: #6B7280;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+}
+
+/* General Input Group spacing */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label styling */
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+/* Standard Input & Select styling */
+.form-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    font-size: 15px;
+    color: #111827;
+    background-color: #ffffff;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.form-input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-input:focus {
+    border-color: #00278A;
+}
+
+/* --- Special Phone Input Wrapper (From Image 1) --- */
+.phone-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    overflow: hidden; /* Keeps the inner elements inside the rounded corners */
+    height: 48px;
+    background-color: #ffffff;
+}
+
+.phone-input-wrapper:focus-within {
+    border-color: #00278A;
+}
+
+.country-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEF2FF; /* Light blue/grey background */
+    color: #4B5563;
+    font-weight: 500;
+    font-size: 15px;
+    height: 100%;
+    padding: 0 16px;
+    border-right: 1px solid #D1D5DB; /* Divider line */
+}
+
+.phone-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    padding: 0 16px;
+    font-size: 15px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.phone-input::placeholder {
+    color: #9CA3AF;
+}
+
+/* --- Two Column Grid for Service Provider (From Image 2) --- */
+.two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Clean styling for the checkboxes */
+.user-type-selector {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.type-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    cursor: pointer;
+}
+
+.custom-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #00278A;
+    cursor: pointer;
+}
+
+/* Button Styling */
+.submit-btn {
+    width: 100%;
+    height: 48px;
+    background-color: #00278A;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between text and arrow */
+    margin-top: 12px;
+    transition: background-color 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+.submit-btn:hover {
+    background-color: #001e6b;
+}
+
+/* Footer Link Styling */
+.footer-text {
+    text-align: center;
+    font-size: 14px;
+    color: #6B7280;
+    margin-top: 24px;
+}
+
+.login-link {
+    color: #00278A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Select wrapper to make the dropdown arrow look neat */
+.select-wrapper select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+}
+
+/* Target mobile phones (600px wide or smaller) */
+@media (max-width: 600px) {
+    /* Reduce the massive padding around the form to give the form more screen real estate */
+    .signup-container {
+        padding: 40px 20px;
+    }
+
+    /* Convert the 2-column grid into a single vertical column */
+    .two-column-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack the User / Service Provider checkboxes vertically instead of horizontally */
+    .user-type-selector {
+        flex-direction: column;
+        /* Reduce the gap between the stacked checkboxes */
+        gap: 12px;
+    }
+
+    /* Shrink the main heading size slightly to prevent text wrapping awkwardly */
+    .main-heading {
+        font-size: 26px;
+    }
+}

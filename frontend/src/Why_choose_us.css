@@ -1,0 +1,155 @@
+
+.services-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 5%; 
+    min-height: calc(100vh - 80px); 
+    box-sizing: border-box; 
+    background-color: #fcfcfd; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-margin-top: 80px;
+}
+
+
+.services-images-container {
+    flex: 0 0 45%; 
+    position: relative;
+    min-height: 400px; 
+}
+
+
+.demo-image-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    border-radius: 20px;
+    z-index: 1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+}
+
+
+.demo-image-2 {
+    position: absolute;
+    top: 40px; 
+    left: 40%; 
+    width: 60%;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15); 
+}
+
+
+.services-text-content {
+    flex: 1;
+    padding-left: 60px;
+}
+
+
+.services-heading {
+    font-size: 3rem;
+    color: #111827;
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+
+.services-subheading {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 24px; 
+}
+
+
+.highlight-service {
+    display: inline; 
+    background-color: #cce4ff;
+    padding: 0 4px; 
+}
+
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* * Styling for the green icons next to each feature. 
+ * Keeps them explicitly sized so they don't shrink or stretch.
+ */
+.service-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0; 
+    object-fit: contain;
+}
+
+/* * Styling for the small headings (e.g., "Verified Pros") inside the list.
+ */
+.service-item-text h3 {
+    font-size: 1.25rem;
+    color: #111827;
+    font-weight: 600;
+    margin: 0 0 8px 0; 
+    text-align: left;
+}
+
+/* * Styling for the description paragraphs inside the list items.
+ */
+.service-item-text p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Target smaller laptops and tablets (900px wide or smaller) */
+@media (max-width: 900px) {
+    /* Stack the image container and the text container vertically */
+    .services-section {
+        flex-direction: column;
+        /* Reduce top/bottom padding for smaller screens */
+        padding: 40px 5%;
+    }
+
+    /* Remove the fixed 45% width constraint on the image container */
+    .services-images-container {
+        flex: none;
+        /* Force the container to take up the full width available */
+        width: 100%;
+        /* Add breathing room between the images and the text below them */
+        margin-bottom: 60px;
+    }
+
+    /* Remove the 60px left padding since it's no longer sitting next to the images */
+    .services-text-content {
+        padding-left: 0;
+        /* Allow the text to take up the full width of the screen */
+        width: 100%;
+    }
+}
+
+/* Target small mobile phones specifically */
+@media (max-width: 500px) {
+    /* Reduce the size of the floating images so they don't break the layout */
+    .services-images-container {
+        min-height: 250px;
+    }
+    
+    /* Shrink the top image */
+    .demo-image-1 {
+        width: 70%;
+    }
+    
+    /* Shrink the bottom staggered image and adjust its placement */
+    .demo-image-2 {
+        top: 20px;
+        left: 25%;
+        width: 70%;
+    }
+}

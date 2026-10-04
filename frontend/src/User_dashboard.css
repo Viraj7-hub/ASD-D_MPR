@@ -1,0 +1,392 @@
+/* Global variables for consistent color theming 
+  and setting the core typography for the dashboard
+*/
+:root {
+  --bg-color: #FAFBFF;
+  --sidebar-bg: #FFFFFF;
+  --primary-blue: #2B3A8C;
+  --primary-light: #EBEBFA;
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Basic CSS Reset to ensure elements don't have unexpected 
+  spacing across different browsers 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Applying the base font and background colors to the whole page 
+*/
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+/* Main layout grid: 
+  Splits the screen into a fixed sidebar on the left and a fluid area on the right 
+*/
+.dashboard-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR STYLES --- */
+
+/* The left navigation pane. Fixed width of 240px with a subtle right border 
+*/
+.sidebar {
+  width: 240px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+}
+
+/* Container for the "Profix" brand name 
+*/
+.sidebar-logo {
+  padding-left: 12px;
+  margin-bottom: 40px;
+}
+
+/* Styling for the "Profix" brand text 
+*/
+.sidebar-logo h2 {
+  color: var(--primary-blue);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Flex container to stack the navigation links vertically 
+*/
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual navigation links (Home, My Requests, Chats) 
+*/
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for navigation links 
+*/
+.nav-item:hover {
+  background-color: #F1F5F9;
+}
+
+/* Active state for the page the user is currently on 
+*/
+.nav-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary-blue);
+}
+
+/* --- MAIN CONTENT & HEADER STYLES --- */
+
+/* The fluid container that holds the header and the scrollable dashboard 
+*/
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* The top bar. Uses flex-end to push the profile section to the right 
+  since the search bar was removed. 
+*/
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 24px 40px;
+  background-color: var(--bg-color);
+}
+
+/* Wrapper for the notification bell and user profile info 
+*/
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Transparent button styling for the notification bell 
+*/
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+/* Container holding the user's name and their profile SVG icon 
+*/
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Styling for the user's name text 
+*/
+.profile-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+/* Styling for the new CircleUser SVG icon from lucide-react 
+*/
+.profile-icon-svg {
+  color: var(--text-dark);
+  stroke-width: 1.5px;
+}
+
+/* --- SCROLLABLE CONTENT AREA --- */
+
+/* Adds padding around the actual dashboard content (Hero banner + Services) 
+*/
+.content-scroll-area {
+  padding: 0 40px 40px 40px;
+}
+
+/* --- HERO BANNER STYLES --- */
+
+/* The large blue welcome banner at the top of the dashboard 
+*/
+.hero-banner {
+  background-color: var(--primary-blue);
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  color: white;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left side of the hero banner holding the text 
+*/
+.hero-content {
+  max-width: 50%;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #E2E8F0;
+  margin-bottom: 32px;
+}
+
+/* Placeholder space for the illustration on the right side of the banner 
+*/
+.hero-graphic {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.graphic-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* --- SERVICES GRID STYLES (UPDATED) --- */
+
+/* Wrapper now stacks the header and the cards vertically */
+.services-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  /* Space between the header row and the cards */
+}
+
+/* Header row holding the title and link */
+.services-top-header {
+  display: flex;
+  justify-content: space-between;
+  /* Pushes title left and link right */
+  align-items: center;
+  width: 100%;
+}
+
+/* Title styling */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+/* Link styling */
+.view-all {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Flex container for the four service cards */
+.cards-container {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Individual service card styling */
+.service-card {
+  flex: 1;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-width: 130px;
+}
+
+/* Lifts the card slightly and adds a shadow when hovered */
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* The rounded colored square that sits behind the SVG icons */
+.service-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Utility classes to apply specific brand colors to each service icon */
+.icon-blue {
+  background-color: #EFF6FF;
+  color: #3B82F6;
+}
+
+.icon-green {
+  background-color: #F0FDF4;
+  color: #22C55E;
+}
+
+.icon-orange {
+  background-color: #FFF7ED;
+  color: #F97316;
+}
+
+.icon-purple {
+  background-color: #FAF5FF;
+  color: #A855F7;
+}
+
+/* Service title (e.g., "Plumbing") */
+.service-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1E293B;
+}
+
+/* Starting price text */
+.service-card p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* --- PROFILE OVERLAY STYLES --- */
+
+/* Full-screen semi-transparent backdrop */
+.profile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlayFadeIn 0.2s ease-out;
+}
+
+/* Container that holds the UserProfile popup - prevents clicks from closing overlay */
+.profile-overlay-content {
+  animation: profileSlideIn 0.25s ease-out;
+}
+
+/* Hover style for the profile icon button in the header */
+.profile-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.profile-icon-btn:hover {
+  background-color: var(--primary-light);
+}
+
+/* Fade-in animation for the overlay backdrop */
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-up animation for the profile popup card */
+@keyframes profileSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
